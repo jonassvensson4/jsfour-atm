@@ -45,6 +45,12 @@ Citizen.CreateThread(function ()
 	end
 end)
 
+-- Create account when the script is started
+Citizen.CreateThread(function ()
+	Wait(500)
+	TriggerServerEvent('jsfour-atm:createAccount')
+end)
+
 -- Key event
 Citizen.CreateThread(function ()
   while true do
@@ -77,7 +83,8 @@ Citizen.CreateThread(function ()
 						cash = data.cash,
 						type = type,
 						firstname = dataUser[1].firstname,
-						lastname = dataUser[1].lastname
+						lastname = dataUser[1].lastname,
+						account = dataUser[1].account
 					})
 				end)
 			end)
@@ -108,7 +115,7 @@ end)
 -- Transfer money
 RegisterNUICallback('transfer', function(data, cb)
 	cb('ok')
-	TriggerServerEvent('jsfour-atm:transfer', data.money)
+	TriggerServerEvent('jsfour-atm:transfer', data.money, data.account)
 end)
 
 -- Close the NUI/HTML window
