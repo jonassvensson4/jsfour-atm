@@ -8,7 +8,7 @@ Du får mer än gärna ändra vad du vill i scriptet men du får INTE sälja vid
 Det tar ca 5 sekunder att ta ut 2000. Ska man då ta ut större belopp så får man besöka en bank och via disk ta ut valfri summa.
 Koden för att använda bankomaten är 1111 för alla spelare.
 
-### INSTALLERING
+### INSTALLATION
 * Lägg in scriptet i din resource-mapp
 * Lägg in sql-filen i din databas
 
