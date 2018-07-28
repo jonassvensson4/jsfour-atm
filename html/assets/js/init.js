@@ -242,6 +242,7 @@ $(document).ready(function(){
     $('#display #insert').hide();
     $('#bank #loading').hide();
     $('#paper').hide();
+    window.location.href = 'index.html';
     $('#welcome').show();
   }
 
