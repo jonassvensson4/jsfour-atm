@@ -122,7 +122,7 @@ AddEventHandler('jsfour-atm:createAccount', function( src )
   math.randomseed(math.floor(os.time() + math.random(1000)))
 
   local _source = source
-  local identifier
+  local identifier = nil
 
   if src == nil then
     identifier = ESX.GetPlayerFromId(_source).identifier
