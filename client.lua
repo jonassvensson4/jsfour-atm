@@ -47,7 +47,7 @@ end)
 
 -- Create account when the script is started
 Citizen.CreateThread(function ()
-	Wait(500)
+	Wait(3000)
 	TriggerServerEvent('jsfour-atm:createAccount')
 end)
 
