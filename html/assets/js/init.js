@@ -39,7 +39,7 @@ $(document).ready(function(){
         cash = event.data.cash;
         bank = event.data.bank;
       } else if (event.data.action == 'openBank') {
-        window.location.href = 'bank.html?cash=' + event.data.cash + '&bank=' + event.data.bank + '&type=' + event.data.type + '&firstname=' + event.data.firstname + '&lastname=' + event.data.lastname;
+        window.location.href = 'bank.html?cash=' + event.data.cash + '&bank=' + event.data.bank + '&type=' + event.data.type + '&firstname=' + event.data.firstname + '&lastname=' + event.data.lastname + '&account=' + event.data.account;
       } else if (event.data.action == 'close') {
         $('#wrapper').hide();
       } else if (event.data.action == 'correct') {
