@@ -21,6 +21,7 @@ var cash = getUrlParameter('cash');
 var bank = getUrlParameter('bank');
 var type = getUrlParameter('type');
 
+$('#senderAcc').val(getUrlParameter('account'));
 $('.firstname').val(getUrlParameter('firstname'));
 $('.lastname').val(getUrlParameter('lastname'));
 $('.saldo').text('Saldo: ' + bank);
@@ -127,13 +128,13 @@ $('#transfer').click(function() {
     $('#home').hide();
     $('#transaction-form').show();
   } else {
-    var anumb = $('#accnumb').val();
+    var anumb = $('#receiverAcc').val();
     var onumb = $('#orgnumb').val();
     var amount = $('#transfer-amount').val();
 
     if ( amount > 0 && amount != null && amount != ' ' && bank > 0 && anumb.length > 0 ) {
       if ( parseInt(bank) >= parseInt(amount) ) {
-        $.post('http://jsfour-atm/transfer', JSON.stringify({ money : amount }));
+        $.post('http://jsfour-atm/transfer', JSON.stringify({ money : amount, account : anumb }));
 
         bank = parseInt(bank) - parseInt(amount);
 
