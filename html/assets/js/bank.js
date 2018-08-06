@@ -22,6 +22,7 @@ var bank = getUrlParameter('bank');
 var type = getUrlParameter('type');
 
 $('#senderAcc').val(getUrlParameter('account'));
+$('#takeAcc').val(getUrlParameter('account'));
 $('.firstname').val(getUrlParameter('firstname'));
 $('.lastname').val(getUrlParameter('lastname'));
 $('.saldo').text('Saldo: ' + bank);
