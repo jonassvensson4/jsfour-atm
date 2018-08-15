@@ -31,7 +31,7 @@ Citizen.CreateThread(function ()
 		inMarker = false
 		inBankMarker = false
     for i=1, #Config.ATMS, 1 do
-      if( GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.ATMS[i].x, Config.ATMS[i].y, true) < 2  ) then
+      if( GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.ATMS[i].x, Config.ATMS[i].y, Config.ATMS[i].z, true) < 2  ) then
 				if ( Config.ATMS[i].b == nil ) then
 					inMarker = true
 					hintToDisplay('Tryck på ~INPUT_PICKUP~ för att använda bankomaten')
