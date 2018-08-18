@@ -85,6 +85,8 @@ $(document).ready(function(){
     if (card && inside) {
       clickSound.play();
       resetAll();
+      $('#wrapper').hide();
+      $.post('http://jsfour-atm/escape', JSON.stringify({}));
     }
   });
 
