@@ -26,6 +26,7 @@ end
 
 -- Enter / Exit zones
 Citizen.CreateThread(function ()
+  SetNuiFocus(false, false)
   while true do
     Wait(0)
 		inMarker = false
