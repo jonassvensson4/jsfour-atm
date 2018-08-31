@@ -203,7 +203,8 @@ $(document).ready(function(){
         errorSound.play();
         setTimeout(function(){
           errorSound.stop();
-          resetAll();
+          $('#error').hide();
+          $('#welcome').show();
         }, 3000);
       }
     }
