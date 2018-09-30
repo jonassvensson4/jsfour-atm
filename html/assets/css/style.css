@@ -206,3 +206,9 @@ li {
     top: -144px !important;
   }
 }
+@media only screen and (max-height: 768px) {
+  #wrapper {
+    top: -144px !important;
+  }
+}
+
