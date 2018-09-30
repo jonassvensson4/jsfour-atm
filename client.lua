@@ -27,12 +27,17 @@ end
 -- Enter / Exit zones
 Citizen.CreateThread(function ()
   SetNuiFocus(false, false)
+	time = 500
+	x = 1
   while true do
-    Wait(0)
+    Citizen.Wait(time)
 		inMarker = false
 		inBankMarker = false
+
     for i=1, #Config.ATMS, 1 do
-      if( GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.ATMS[i].x, Config.ATMS[i].y, Config.ATMS[i].z, true) < 2  ) then
+      if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.ATMS[i].x, Config.ATMS[i].y, Config.ATMS[i].z, true) < 2  then
+				x = i
+				time = 0
 				if ( Config.ATMS[i].b == nil ) then
 					inMarker = true
 					hintToDisplay('Tryck på ~INPUT_PICKUP~ för att använda bankomaten')
@@ -41,8 +46,11 @@ Citizen.CreateThread(function ()
 					type = Config.ATMS[i].t
 					hintToDisplay('Tryck på ~INPUT_PICKUP~ för att bli betjänad')
 				end
-      end
+			elseif GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), Config.ATMS[x].x, Config.ATMS[x].y, Config.ATMS[x].z, true) > 4 then
+				time = 500
+			end
     end
+
 	end
 end)
 
