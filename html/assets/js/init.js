@@ -55,7 +55,7 @@ $(document).ready(function(){
 
   $('#cardflash').click(function(){
     if (!card) {
-      if(offsetBottom('#card') == 1253) {
+      if(offsetBottom('#card') == 1069 || offsetBottom('#card') == 1253) {
         $('#card').addClass('card-anim');
         var bottom = offsetBottom('#card');
         var i = 150;
