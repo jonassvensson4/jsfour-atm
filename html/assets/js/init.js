@@ -117,7 +117,7 @@ $(document).ready(function(){
         }
       } else {
         if (!taking) {
-          if (bank > 0) {
+          if (bank > 0 && bank > amount) {
             taking = true;
             $('#display #insert').hide();
             $('#display #take').hide();
