@@ -10,6 +10,7 @@ Koden för att använda bankomaten är 1111 för alla spelare.
 
 ### INSTALLATION
 * Lägg in scriptet i din resource-mapp
+* Döp om mappen till **jsfour-atm**
 * Lägg in sql-filen i din databas
 
 ### SCREENSHOTS
