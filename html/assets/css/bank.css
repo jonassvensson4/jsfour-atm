@@ -114,3 +114,13 @@ hr {
 .pacific #paper #header {
   background: #67573b;
 }
+@media only screen and (max-width: 1325px) {
+  #paper {
+    top: -14px !important;
+  }
+}
+@media only screen and (max-height: 768px) {
+  #paper {
+    top: -14px !important;
+  }
+}
