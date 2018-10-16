@@ -3,7 +3,7 @@ En realistisk bankomat
 
 ### NOTICE
 This script is in swedish. If you want to translate it you can download the images and PSD files from:
-https://github.com/jonassvensson4/jsfour-templates/tree/master/jsfour-atm
+https://www.dropbox.com/sh/wnntc2eu1syfoan/AACmKwcRkPIHxy2f1Eabc9pBa?dl=0
 The rest you have to change in the files, you'll find most of it in index.html, bank.html, init.js and bank.js
 
 ### LICENSE
