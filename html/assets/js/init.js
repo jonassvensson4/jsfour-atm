@@ -245,7 +245,6 @@ $(document).ready(function(){
     $('#display #insert').hide();
     $('#bank #loading').hide();
     $('#paper').hide();
-    window.location.href = 'index.html';
     $('#welcome').show();
   }
 
@@ -253,6 +252,7 @@ $(document).ready(function(){
   $(document).keyup(function(e) {
      if ( e.keyCode == 27 ) {
       resetAll();
+       window.location.href = 'index.html';
       $('#wrapper').hide();
       $.post('http://jsfour-atm/escape', JSON.stringify({}));
     }
