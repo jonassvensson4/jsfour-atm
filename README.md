@@ -7,7 +7,7 @@ https://www.dropbox.com/sh/wlzro3fc0soq9n5/AAC2kvnKwJIeldq2f4N1DPkOa?dl=0
 The rest you have to change in the files, you'll find most of it in index.html, bank.html, init.js and bank.js
 
 ### LICENSE
-Du får mer än gärna ändra vad du vill i scriptet men du får INTE sälja vidare scriptet eller ladda upp det på nytt, hänvisa folket hit istället.
+Please don't sell or reupload this resource
 
 ### INFO
 Det tar ca 5 sekunder att ta ut 2000. Ska man då ta ut större belopp så får man besöka en bank och via disk ta ut valfri summa.
