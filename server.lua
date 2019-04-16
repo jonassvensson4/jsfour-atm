@@ -108,7 +108,11 @@ AddEventHandler('jsfour-atm:transfer', function(amount, receiver)
         function (result)
           if (result[1] ~= nil) then
             TriggerClientEvent('esx:showNotification', _source, 'Du skickade ' .. amount .. '~s~ kr till ' .. result[1].firstname .. ' ' .. result[1].lastname)
-            TriggerClientEvent('esx:showNotification', recPlayer.source, 'Du fick ' .. amount .. '~s~ kr skickade till dig från ' .. result[1].firstname .. ' ' .. result[1].lastname)
+           
+	MySQL.Async.fetchAll('SELECT firstname, lastname FROM users WHERE identifier = @identifier', {['@identifier'] = ESX.GetPlayerFromId(_source).getIdentifier()},
+            function (result)
+              TriggerClientEvent('esx:showNotification', recPlayer.source, 'Du fick ' .. amount .. '~s~ kr skickade till dig från ' .. result[1].firstname .. ' ' .. result[1].lastname)
+            end)
           end
         end)
       end
