@@ -26,7 +26,7 @@ $( document ).ready(function(){
         src: ['assets/sounds/error.ogg?v=2'],
         volume: 0.5,
     });
-    fetch(`https://jsfour-atm/jsfour-atm:error`);
+    
     window.addEventListener('message', function(event) {
         switch(event.data.action) {
             case 'open':

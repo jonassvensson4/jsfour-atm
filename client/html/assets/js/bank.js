@@ -25,7 +25,7 @@ $('#senderAcc').val(getUrlParameter('account'));
 $('#takeAcc').val(getUrlParameter('account'));
 $('.firstname').val(getUrlParameter('firstname'));
 $('.lastname').val(getUrlParameter('lastname'));
-$('.saldo').text('Saldo: ' + bank);
+$('.saldo').text('Balance: ' + bank);
 
 // Fleeca Banking
 function fleeca() {
@@ -33,7 +33,7 @@ function fleeca() {
   $('body').removeClass('pacific');
   $('#header img').css('margin-top', '0');
   $('#header img').attr('src', 'assets/images/fleeca.png');
-  $('#welcome').text('Välkommen till Fleeca Banking!');
+  $('#welcome').text('Welcome to Fleeca Banking!');
 }
 
 // Blaine County
@@ -41,7 +41,7 @@ function blaine() {
   $('body').addClass('blaine');
   $('#header img').css('margin-top', '-10px');
   $('#header img').attr('src', 'assets/images/blaine.png');
-  $('#welcome').text('Välkommen till Blaine County!');
+  $('#welcome').text('Welcome to Blaine County!');
 }
 
 // Pacific Standards
@@ -49,7 +49,7 @@ function pacific() {
   $('body').addClass('pacific');
   $('#header img').css('margin-top', '-10px');
   $('#header img').attr('src', 'assets/images/pacific.png');
-  $('#welcome').text('Välkommen till Pacific Standards!');
+  $('#welcome').text('Welcome to Pacific Standards!');
 }
 
 // Change bank layout
@@ -71,7 +71,7 @@ $('#deposit').click(function() {
   } else {
     var amount = $('#take-amount').val();
 
-    if ( amount.toLowerCase() == 'allt' && cash > 0) {
+    if ( amount.toLowerCase() == 'all' && cash > 0) {
       fetch(`https://jsfour-atm/jsfour-atm:deposit`, {
         method: 'POST',
         body: cash
@@ -80,7 +80,7 @@ $('#deposit').click(function() {
       bank = parseInt(bank) + parseInt(cash);
       cash = parseInt(cash) - parseInt(cash);
 
-      $('.saldo').text('Saldo: ' + bank.toString());
+      $('.saldo').text('Balance: ' + bank.toString());
     } else if ( amount > 0 && amount != null && amount != ' ' && cash > 0 ) {
       if ( parseInt(cash) >= parseInt(amount) ) {
         fetch(`https://jsfour-atm/jsfour-atm:deposit`, {
@@ -91,7 +91,7 @@ $('#deposit').click(function() {
         cash = parseInt(cash) - parseInt(amount);
         bank = parseInt(bank) + parseInt(amount);
 
-        $('.saldo').text('Saldo: ' + bank.toString());
+        $('.saldo').text('Balance: ' + bank.toString());
       }
     }
   }
@@ -107,7 +107,7 @@ $('#withdraw').click(function() {
   } else {
     var amount = $('#take-amount').val();
 
-    if ( amount.toLowerCase() == 'allt' && cash > 0) {
+    if ( amount.toLowerCase() == 'all' && cash > 0) {
       fetch(`https://jsfour-atm/jsfour-atm:withdraw`, {
         method: 'POST',
         body: cash
@@ -116,7 +116,7 @@ $('#withdraw').click(function() {
       bank = parseInt(bank) + parseInt(cash);
       cash = parseInt(cash) - parseInt(cash);
 
-      $('.saldo').text('Saldo: ' + bank.toString());
+      $('.saldo').text('Balance: ' + bank.toString());
     } else if ( amount > 0 && amount != null && amount != ' ' && bank > 0 ) {
       if ( parseInt(bank) >= parseInt(amount) ) {
         fetch(`https://jsfour-atm/jsfour-atm:withdraw`, {
@@ -127,7 +127,7 @@ $('#withdraw').click(function() {
         cash = parseInt(cash) + parseInt(amount);
         bank = parseInt(bank) - parseInt(amount);
 
-        $('.saldo').text('Saldo: ' + bank.toString());
+        $('.saldo').text('Balance: ' + bank.toString());
       }
     }
   }
@@ -157,7 +157,7 @@ $('#transfer').click(function() {
 
         bank = parseInt(bank) - parseInt(amount);
 
-        $('.saldo').text('Saldo: ' + bank);
+        $('.saldo').text('Balance: ' + bank);
       }
     }
   }

@@ -10,77 +10,77 @@
   <body>
     <div id="paper">
       <div id="header">
-        <h1>Insättning / Uttag / Överföring</h1>
+        <h1>Deposit / Withdraw / Transfer</h1>
         <img src="assets/images/fleeca.png" draggable="false"/>
       </div>
       <div id="content">
         <div id="home">
-          <p id="welcome">Välkommen till Fleeca Banking!</p>
-          <p>Klicka på en knapp nedan som passar ditt ärende<br />För att genomföra en transaktion så klickar du en gång till på knappen du vill använda</p>
+          <p id="welcome">Welcome to Fleeca Banking!</p>
+          <p>Press a button<br />To complete a transaction, click the button you want to use again</p>
         </div>
         <form id="transaction-form">
-          <h2>Sändare</h2>
+          <h2>Sender</h2>
           <div class="input-field small">
-            <p class="label">Förnamn</p>
+            <p class="label">Firstname</p>
             <input class="firstname" disabled/>
           </div>
           <div class="input-field small">
-            <p class="label">Efternamn</p>
+            <p class="label">Lastname</p>
             <input class="lastname" disabled/>
           </div>
           <div class="input-field">
-            <p class="label">Kontonummer</p>
+            <p class="label">Account number</p>
             <input id="senderAcc" disabled/>
           </div>
           <div class="input-field">
-            <p class="label">Organisationsnummer</p>
+            <p class="label">Organisation number</p>
             <input disabled/>
           </div>
-          <h2>Mottagare</h2>
+          <h2>Receiver</h2>
           <div class="input-field">
-            <p class="label">Kontonummer</p>
+            <p class="label">Account number</p>
             <input id="receiverAcc" value="" required/>
           </div>
           <div class="input-field">
-            <p class="label">Organisationsnummer</p>
+            <p class="label">Organisation number</p>
             <input id="orgnumb" value=""/>
           </div>
           <hr />
           <div class="input-field">
-            <p class="label">Belopp</p>
+            <p class="label">Amount</p>
             <input id="transfer-amount" pattern="[0-9]" required/>
           </div>
-          <p class="saldo">Saldo: </p>
+          <p class="saldo">Balance: </p>
         </form>
         <form id="take-form">
-          <h2>Insättning / Uttag</h2>
+          <h2>Deposit / Withdraw</h2>
           <div class="input-field small">
-            <p class="label">Förnamn</p>
+            <p class="label">Firstname</p>
             <input class="firstname" disabled/>
           </div>
           <div class="input-field small">
-            <p class="label">Efternamn</p>
+            <p class="label">Lastname</p>
             <input class="lastname" disabled/>
           </div>
           <div class="input-field">
-            <p class="label">Kontonummer</p>
+            <p class="label">Account number</p>
             <input value="" disabled id="takeAcc"/>
           </div>
           <div class="input-field">
-            <p class="label">Organisationsnummer</p>
+            <p class="label">Organisation number</p>
             <input value="223456-0231" disabled/>
           </div>
           <hr />
           <div class="input-field">
-            <p class="label">Belopp</p>
+            <p class="label">Amount</p>
             <input id="take-amount" pattern="[0-9]{3}" required/>
           </div>
-          <p class="saldo">Saldo: </p>
+          <p class="saldo">Balance: </p>
         </form>
         <div id="footer">
-          <button class="btn-flat waves-effect" id="deposit">SÄTT IN</button>
-          <button class="btn-flat waves-effect" id="withdraw">TA UT</button>
-          <button class="btn-flat waves-effect" id="transfer">ÖVERFÖR</button>
+          <button class="btn-flat waves-effect" id="deposit">DEPOSIT</button>
+          <button class="btn-flat waves-effect" id="withdraw">WITHDRAW</button>
+          <button class="btn-flat waves-effect" id="transfer">TRANSFER</button>
         </div>
       </div>
     </div>
