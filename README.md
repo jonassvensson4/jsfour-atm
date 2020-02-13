@@ -1,8 +1,8 @@
 # jsfour-atm
-En realistisk bankomat
+A realistic atm
 
 ### NOTICE
-This script is in swedish. If you want to translate it you can download the images and PSD files from:
+This script is in swedish and I won't help you translate it. If you want to translate it you can download the images and PSD files from:
 https://www.dropbox.com/sh/wlzro3fc0soq9n5/AAC2kvnKwJIeldq2f4N1DPkOa?dl=0
 The rest you have to change in the files, you'll find most of it in index.html, bank.html, init.js and bank.js
 
@@ -10,13 +10,13 @@ The rest you have to change in the files, you'll find most of it in index.html, 
 Please don't sell or reupload this resource
 
 ### INFO
-Det tar ca 5 sekunder att ta ut 2000. Ska man då ta ut större belopp så får man besöka en bank och via disk ta ut valfri summa.
-Koden för att använda bankomaten är 1111 för alla spelare.
+It takes about 5 seconds to withdraw money from the atm. If the player want to withdraw a lot of money it can visit the bank where you can specify a amount to withdraw.
 
 ### INSTALLATION
-* Lägg in scriptet i din resource-mapp
-* Döp om mappen till **jsfour-atm**
-* Lägg in sql-filen i din databas
+This resource requires you to have ESX installed.
+* Add it to the resource folder and add `start jsfour-atm` to the server.cfg
+* Rename the folder **jsfour-atm**. Nothing else will work
+* Run the SQL file
 
 ### SCREENSHOTS
 ![screenshot](https://i.gyazo.com/c97621f5ea7291c97eeca77197b83e6c.png)
