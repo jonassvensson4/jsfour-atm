@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/materialize.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.5/howler.core.min.js"></script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="code">
+        <h1></h1>
+        <ul id="small">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+          <li>6</li>
+          <li>7</li>
+          <li>8</li>
+          <li>9</li>
+          <li>-</li>
+          <li>0</li>
+          <li>+</li>
+        </ul>
+        <ul id="large">
+          <li id="cancel"></li>
+          <li id="wrong"></li>
+          <li id="done"></li>
+        </ul>
+      </div>
+      <div id="bank">
+        <div id="buttons">
+          <ul class="left">
+            <li class="take-money" data-amount="100"></li>
+            <li class="take-money" data-amount="300"></li>
+            <li class="take-money" data-amount="1000"></li>
+            <li id="b-cancel"></li>
+          </ul>
+          <ul class="right">
+            <li class="take-money" data-amount="200"></li>
+            <li class="take-money" data-amount="500"></li>
+            <li class="take-money" data-amount="2000">></li>
+            <li id="insert-money"></li>
+          </ul>
+        </div>
+        <div id="welcome">
+          <img src="assets/images/welcome.png"/>
+        </div>
+        <div id="loading">
+          <img src="assets/images/loading.png"/>
+        </div>
+        <div id="error">
+          <img src="assets/images/error.png"/>
+        </div>
+        <div id="display">
+          <div id="header">
+            <img src="assets/images/logo.png"/>
+            <p>0</p>
+          </div>
+          <ul id="take">
+            <li><span>200<i class="material-icons">keyboard_arrow_right</i></span><span><i class="material-icons">keyboard_arrow_left</i>100</span></li>
+            <li><span>500<i class="material-icons">keyboard_arrow_right</i></span><span><i class="material-icons">keyboard_arrow_left</i>300</span></li>
+            <li><span>2000<i class="material-icons">keyboard_arrow_right</i></span><span><i class="material-icons">keyboard_arrow_left</i>1000</span></li>
+            <li><span>Sätt in<i class="material-icons">keyboard_arrow_right</i></span><span><i class="material-icons">keyboard_arrow_left</i>Avbryt</span></li>
+          </ul>
+          <div id="insert">
+            <ul>
+              <li><span>200<i class="material-icons">keyboard_arrow_right</i></span><span><i class="material-icons">keyboard_arrow_left</i>100</span></li>
+              <li><span>500<i class="material-icons">keyboard_arrow_right</i></span><span><i class="material-icons">keyboard_arrow_left</i>300</span></li>
+              <li><span>Allt<i class="material-icons">keyboard_arrow_right</i></span><span><i class="material-icons">keyboard_arrow_left</i>1000</span></li>
+              <li><span>Ta ut<i class="material-icons">keyboard_arrow_right</i></span><span><i class="material-icons">keyboard_arrow_left</i>Avbryt</span></li>
+            </ul>
+          </div>
+        </div>
+        <div id="card-button"></div>
+        <div id="code-button"></div>
+        <div id="card"></div>
+        <img id="money" src="assets/images/money.gif"/>
+        <img id="receipt" src="assets/images/receipt.gif"/>
+        <img id="cardflash" src="assets/images/cardflash.gif"/>
+      </div>
+    </div>
+    <script src="assets/js/jquery.js" type="text/javascript"></script>
+    <script src="assets/js/materialize.js" type="text/javascript"></script>
+    <script src="assets/js/init.js" type="text/javascript"></script>
+  </body>
+</html>
