@@ -1,5 +1,7 @@
 # jsfour-atm
-A realistic atm
+
+##### Update:
+The atm has been translated to English. The images however are still in swedish. I'm too lazy to replace them all. You can find the English versions on my [dropbox](https://www.dropbox.com/sh/wlzro3fc0soq9n5/AAC2kvnKwJIeldq2f4N1DPkOa?dl=0). There's also 2 versions of the money gif, Euro and Dollars.
 
 ### LICENSE
 Please don't sell or reupload this resource.
