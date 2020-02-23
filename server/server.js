@@ -139,7 +139,7 @@ onNet('jsfour-atm:transfer', async ( data ) => {
                 xSender.removeAccountMoney('bank', amount);
                 xReceiver.addAccountMoney('bank', amount);
 
-                let users = await executeQuery(
+                let user = await executeQuery(
                     'mysql_fetch_all', 
                     'SELECT `firstname`, `lastname` FROM `users` WHERE `identifier` = @receiver UNION SELECT `firstname`, `lastname` FROM `users` WHERE `identifier` = @sender', { 
                     '@receiver': identifier[0].identifier,
