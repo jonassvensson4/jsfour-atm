@@ -53,7 +53,6 @@ input {
   width: 547px !important;
   box-sizing: border-box;
   display: inline-block !important;
-  /* background: #f1fff3 !important; */
   background: #f9f9f9 !important;
   border: none !important;
   font-weight: bold;
@@ -95,12 +94,15 @@ hr {
 #take-form {
   display: none;
 }
-#home {
+#welcome-text {
   text-align: center;
 }
-#home p:nth-child(1) {
+#welcome-text p:nth-child(1) {
   font-weight: bold;
   font-size: 18px;
+}
+#home form {
+  margin-top: 20%;
 }
 .blaine button {
   background: #921a21 !important;
@@ -114,6 +116,11 @@ hr {
 .pacific #paper #header {
   background: #67573b;
 }
+
+.wrong {
+  border-color: red;
+}
+
 @media only screen and (max-width: 1325px) {
   #paper {
     top: -14px !important;

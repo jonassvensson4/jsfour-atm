@@ -72,27 +72,29 @@ setTick(() => {
 	if ( IsControlJustReleased(0, key) ) {
 		// Check distance
 		if ( checkDistance() ) {
+			let type = 'openATM';
+
 			SetNuiFocus(true, true);
 
-			if ( locations[location].t ) {
-				serverCallback('jsfour-atm:getMoney', {}, ( money ) => {
-					serverCallback('jsfour-atm:getUser', {}, ( user ) => {
-						SendNuiMessage(JSON.stringify({
-							action: 'openBank',
-							type: bankType,
-							money: money,
-							user: user
-						}));
-					});
-				});
-			} else {
-				serverCallback('jsfour-atm:getMoney', {}, ( callback ) => {
-					SendNuiMessage(JSON.stringify({
-						action: 'open',
-						data: callback
-					}));
-				});
+			// Checks if the player is trying to access a bank
+			if ( locations[location].type ) {
+				type = 'openBank';
 			}
+
+			// "Pre-open" the NUI to prevent it from takine 0.2s, the bank however will take some time to open
+			SendNuiMessage(JSON.stringify({
+				action: type
+			}));
+
+			// Run a server callback function to get data from the database
+			serverCallback('jsfour-atm:getUserData', {}, ( data ) => {
+				// Send the stuff to the NUI
+				SendNuiMessage(JSON.stringify({
+					action: type,
+					type: bankType,
+					user: data
+				}));
+			});
 		}
 	}
 });
@@ -106,6 +108,7 @@ setTimeout(() => {
 RegisterNuiCallbackType('jsfour-atm:deposit');
 RegisterNuiCallbackType('jsfour-atm:withdraw');
 RegisterNuiCallbackType('jsfour-atm:transfer');
+RegisterNuiCallbackType('jsfour-atm:changePincode');
 RegisterNuiCallbackType('jsfour-atm:error');
 RegisterNuiCallbackType('jsfour-atm:close');
 
@@ -126,6 +129,14 @@ on('__cfx_nui:jsfour-atm:transfer', ( data, cb ) => {
 	emitNet('jsfour-atm:transfer', data);
 	cb(true)
 });
+
+// Change the pincode
+on('__cfx_nui:jsfour-atm:changePincode', ( data, cb ) => {
+	emitNet('jsfour-atm:changePincode', data);
+	hintToDisplay(pincodeChanged);
+	cb(true);
+});
+
 
 // Close the ATM
 on('__cfx_nui:jsfour-atm:close', ( data ) => {

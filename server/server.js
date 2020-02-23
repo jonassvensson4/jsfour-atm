@@ -25,37 +25,33 @@ async function executeQuery( sql, query, params ) {
 }
 
 // Register server events
-RegisterNetEvent('jsfour-atm:getMoney');
-RegisterNetEvent('jsfour-atm:getUser');
+RegisterNetEvent('jsfour-atm:getUserData');
 RegisterNetEvent('jsfour-atm:deposit');
 RegisterNetEvent('jsfour-atm:withdraw');
 RegisterNetEvent('jsfour-atm:transfer');
+RegisterNetEvent('jsfour-atm:create');
+RegisterNetEvent('jsfour-atm:changePincode');
 
-// Get money
-onNet('jsfour-atm:getMoney', ( data ) => {
+// Get user info
+onNet('jsfour-atm:getUserData', async ( data ) => {
     let player = source;
+    let identifier = GetPlayerIdentifier(player);
+    let money = {};
 
     // If ESX is enabled
     if ( ESX ) {
         let xPlayer = ESX.GetPlayerFromId(player);
-
-        emitNet('jsfour-atm:callback', player, {
+        money = {
             bank: xPlayer.getAccount('bank').money,
             cash: xPlayer.getMoney()
-        }, data.CallbackID);
+        }
     } else {
         // Otherwise.. Add your own stuff
-        emitNet('jsfour-atm:callback', player, {
+        money = {
             bank: 9999,
             cash: 1000
-        }, data.CallbackID);
+        }
     }
-});
-
-// Get user info
-onNet('jsfour-atm:getUser', async ( data ) => {
-    let player = source;
-    let identifier = GetPlayerIdentifier(player);
 
     let user = await executeQuery(
         'mysql_fetch_all', 
@@ -66,14 +62,16 @@ onNet('jsfour-atm:getUser', async ( data ) => {
     if ( user.length > 0 ) {
         let account = await executeQuery(
             'mysql_fetch_all', 
-            'SELECT `account` FROM `jsfour_atm` WHERE `identifier` = @identifier', { 
+            'SELECT `account`, `pincode` FROM `jsfour_atm` WHERE `identifier` = @identifier', { 
             '@identifier': identifier
         });
 
         emitNet('jsfour-atm:callback', player, {
             firstname: user[0].firstname,
             lastname: user[0].lastname,
-            account: account[0].account
+            account: account[0].account,
+            pincode: account[0].pincode,
+            money: money
         }, data.CallbackID);
     }
 });
@@ -119,7 +117,7 @@ onNet('jsfour-atm:withdraw', ( data ) => {
 });
 
 // Transfer money
-on('jsfour-atm:transfer', async ( data ) => {
+onNet('jsfour-atm:transfer', async ( data ) => {
     let player = source;
 
     let identifier = await executeQuery(
@@ -189,4 +187,14 @@ onNet('jsfour-atm:create', async ( data ) => {
     } else {
         // Number already exists... FUCK
     }
+});
+
+// Change pincode
+onNet('jsfour-atm:changePincode', ( data ) => {
+    executeQuery(
+        'mysql_execute', 
+        'UPDATE `jsfour_atm` SET `pincode` = @pincode WHERE `account` = @account', {
+        '@account': data.account,
+        '@pincode': data.pincode
+    });
 });

@@ -6,6 +6,7 @@ $( document ).ready(function(){
     let taking = false;
     let cash = 0;
     let bank = 0;
+    let userPincode = 1111;
 
     let clickSound = new Howl({
         src: ['assets/sounds/click.ogg'],
@@ -29,19 +30,35 @@ $( document ).ready(function(){
     
     window.addEventListener('message', function(event) {
         switch(event.data.action) {
-            case 'open':
-                if (!taking) {
-                    $('#wrapper').show();
-                    $('#header p').text(event.data.data.bank);
+            case 'openATM':
+                if ( Object.keys( event.data ).length > 1 ) {
+                    if ( !taking ) {
+                        $('#wrapper').show();
+                        $('#header p').text(event.data.user.money.bank);
+                    } else {
+                        fetch(`https://jsfour-atm/jsfour-atm:error`);
+                    }
+                    
+                    cash = event.data.user.money.cash;
+                    bank = event.data.user.money.bank;
+                    userPincode = event.data.user.pincode;
                 } else {
-                    fetch(`https://jsfour-atm/jsfour-atm:error`);
+                    $('#wrapper').show();
                 }
-
-                cash = event.data.data.cash;
-                bank = event.data.data.bank;
                 break;
             case 'openBank':
-                window.location.href = 'bank.html?cash=' + event.data.money.cash + '&bank=' + event.data.money.bank + '&type=' + event.data.type + '&firstname=' + event.data.user.firstname + '&lastname=' + event.data.user.lastname + '&account=' + event.data.user.account;
+                if ( Object.keys( event.data ).length > 1 ) {
+                    window.location.href = `
+                        bank.html?
+                        cash=${ event.data.user.money.cash }
+                        &bank=${ event.data.user.money.bank }
+                        &type=${ event.data.type }
+                        &firstname=${ event.data.user.firstname }
+                        &lastname=${ event.data.user.lastname }
+                        &account=${ event.data.user.account }
+                        &pincode=${ event.data.user.pincode }
+                    `;
+                }
                 break;
             case 'correct':
                 $('#code').hide();
@@ -207,7 +224,7 @@ $( document ).ready(function(){
             $('#welcome').hide();
             $('#error').hide();
 
-            if (code == '1111') {
+            if (parseInt(code) === userPincode) {
                 $('#bank #loading').show();
                 setTimeout(function(){
                 $('#bank #loading').hide();
