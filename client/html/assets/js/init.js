@@ -49,8 +49,7 @@ $( document ).ready(function(){
             case 'openBank':
                 if ( Object.keys( event.data ).length > 1 ) {
                     window.location.href = `
-                        bank.html?
-                        cash=${ event.data.user.money.cash }
+                        bank.html?cash=${ event.data.user.money.cash }
                         &bank=${ event.data.user.money.bank }
                         &type=${ event.data.type }
                         &firstname=${ event.data.user.firstname }
